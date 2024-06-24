@@ -24,7 +24,7 @@
           fullName: "フルネーム",
           furigana: "ふりがな",
           sex: "男",
-          shopName: "テスト店舗",
+          shopName: "横浜院",
           startHour1: "10",
           startHour2: "10",
           startHour3: "10",
@@ -39,11 +39,14 @@
           body: JSON.stringify(data),
         };
         fetch(
-          'https://asia-northeast1-clinic-contact-form.cloudfunctions.net/clinicFormStaging',
+          'https://asia-northeast1-clinic-contact-form.cloudfunctions.net/LietoClinicFormStg',
           options,
         )
           .then((response) => response.json())
-          .then((response) => console.log(response))
+          .then((response) => {
+            console.log(response);
+            alert(`送信完了: ${response.data}`);
+          })
           .catch((err) => console.error(err));
 
       }
